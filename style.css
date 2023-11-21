@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #969494;
+    text-align: center;
+}
+
+h1 {
+    color: #000000;
+}
+
+#sensors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.sensor {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sensor-display {
+    margin-bottom: 10px;
+    text-align: left;
+}
+.sensor-display label {
+    font-weight: bold;
+    margin: 0 2px;
+}
+
+.sensor-display span {
+    color: #5c5c5c;
+}
+
+.sensor-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.sensor input[type=range] {
+    width: 100%;
+}

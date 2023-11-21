@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Simulator</title>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>模拟传感器控制面板</h1>
+    <div id="sensors">
+        <!-- 每个传感器的控制和显示区域 -->
+
+        <!-- 温度传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="temperature">温度｜ </label>
+                <span id="temperatureValue">25°C</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="temperature" min="-50" max="50" value="25">
+            </div>
+        </div>
+
+        <!-- 湿度传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="humidity">湿度｜ </label>
+                <span id="humidityValue">50%</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="humidity" min="0" max="100" value="50">
+            </div>
+        </div>
+
+        <!-- 大气压强传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="pressure">大气压强｜ </label>
+                <span id="pressureValue">1013 hPa</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="pressure" min="300" max="1100" value="1013">
+            </div>
+        </div>
+
+        <!-- 光线传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="light">光线｜ </label>
+                <span id="lightValue">500 lx</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="light" min="0" max="10000" value="500">
+            </div>
+        </div>
+
+        <!-- 磁场传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="magnetic">磁场｜ </label>
+                <span id="magneticValue">50 μT</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="magnetic" min="0" max="100" value="50">
+            </div>
+        </div>
+
+        <!-- 水分传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="moisture">水分｜ </label>
+                <span id="moistureValue">30%</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="moisture" min="0" max="100" value="30">
+            </div>
+        </div>
+
+        <!-- 加速度传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="acceleration">加速度｜ </label>
+                <span id="accelerationValue">0 m/s²</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="acceleration" min="0" max="20" value="0">
+            </div>
+        </div>
+
+        <!-- 土壤湿度传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="soilMoisture">土壤湿度｜ </label>
+                <span id="soilMoistureValue">30%</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="soilMoisture" min="0" max="100" value="30">
+            </div>
+        </div>
+
+        <!-- 颜色传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="color">颜色｜ </label>
+                <span id="colorValue">#000000</span> <!-- 默认黑色 -->
+            </div>
+            <div class="sensor-control">
+                <input type="color" id="color" value="#000000">
+            </div>
+        </div>
+
+        <!-- 二氧化碳传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="co2">二氧化碳｜ </label>
+                <span id="co2Value">400 ppm</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="co2" min="400" max="5000" value="400">
+            </div>
+        </div>
+
+        <!-- PH值传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="ph">PH值｜ </label>
+                <span id="phValue">7</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="ph" min="0" max="14" value="7">
+            </div>
+        </div>
+
+        <!-- PM2.5空气质量传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="pm25">PM2.5｜ </label>
+                <span id="pm25Value">0 μg/m³</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="pm25" min="0" max="500" value="0">
+            </div>
+        </div>
+
+        <!-- 风速和风向传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="windSpeed">风速｜ </label>
+                <span id="windSpeedValue">0 km/h</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="windSpeed" min="0" max="100" value="0">
+            </div>
+        </div>
+
+        <!-- 辐射传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="radiation">辐射｜ </label>
+                <span id="radiationValue">0 μSv/h</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="radiation" min="0" max="1000" value="0">
+            </div>
+        </div>
+
+        <!-- 声音传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="sound">声音｜ </label>
+                <span id="soundValue">0 dB</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="sound" min="0" max="130" value="0">
+            </div>
+        </div>
+
+        <!-- 超声波传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="ultrasonic">超声波｜ </label>
+                <span id="ultrasonicValue">0 cm</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="ultrasonic" min="0" max="500" value="0">
+            </div>
+        </div>
+
+        <!-- 人体传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="humanDetection">人体｜ </label>
+                <span id="humanDetectionValue">未检测</span>
+            </div>
+            <div class="sensor-control">
+                <input type="checkbox" id="humanDetection">
+            </div>
+        </div>
+
+        <!-- 触摸传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="touch">触摸｜ </label>
+                <span id="touchValue">未触摸</span>
+            </div>
+            <div class="sensor-control">
+                <input type="checkbox" id="touch">
+            </div>
+        </div>
+
+        <!-- 心率血压血氧传感器 -->
+        <div class="sensor">
+            <div class="sensor-display">
+                <label for="heartRate">心率｜ </label>
+                <span id="heartRateValue">60 bpm</span>
+            </div>
+            <div class="sensor-control">
+                <input type="range" id="heartRate" min="40" max="180" value="60">
+            </div>
+        </div>
+
+    </div>
+    <!-- Add more controls for other sensors -->
+    <script src="script.js"></script>
+</body>
+
+</html>
