@@ -51,9 +51,9 @@ const url = 'wss://mqtt-dashboard.leicheng42.com:8084/mqtt'
 const client = mqtt.connect(url, {
     clean: true,
     connectTimeout: 4000,
-    clientId: 'emqx_test',
-    username: 'emqx_test',
-    password: 'emqx_test',
+    clientId: '',
+    username: '',
+    password: '',
 });
 
 
