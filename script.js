@@ -46,7 +46,8 @@ const valueSuffixes = {
     // ... 其他传感器的单位 ...
 };
 
-const url = 'ws://mqtt-dashboard.leicheng42.com:8083/mqtt'
+// const url = 'ws://mqtt-dashboard.leicheng42.com:8083/mqtt'
+const url = 'wss://mqtt-dashboard.leicheng42.com:8084/mqtt'
 const client = mqtt.connect(url, {
     clean: true,
     connectTimeout: 4000,
